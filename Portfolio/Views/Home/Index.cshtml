@@ -1,8 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Portfolio.Models.Project>
+@{
+    ViewData["Title"] = "My Portfolio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+    <div class="card mb-5 bg-light">
+        <div class="card-body">
+            <h4 class="card-title">Table of Contents</h4>
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <a href="#project-@item.Id">@item.Title</a> - <em>@item.ShortDescription</em>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="mb-4">My Projects</h2>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 mb-4" id="project-@item.Id">
+                <div class="card h-100 shadow-sm">
+                    <img src="@item.ThumbnailUrl" class="card-img-top" alt="Thumbnail for @item.Title" style="height: 200px; object-fit: cover; background-color: #e9ecef;">
+
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">@item.ShortDescription</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <a asp-controller="Project" asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary w-100">View Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

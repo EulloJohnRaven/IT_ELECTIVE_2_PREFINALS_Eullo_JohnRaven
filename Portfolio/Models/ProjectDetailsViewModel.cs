@@ -4,8 +4,8 @@ namespace Portfolio.Models
 {
     public class ProjectDetailsViewModel
     {
-        public Project Project { get; set; }
-        public List<Comment> Comments { get; set; }
-        public Comment NewComment { get; set; }
+        public required Project Project { get; set; }
+        public required List<Comment> Comments { get; set; }
+        public required Comment NewComment { get; set; }
     }
 }
