@@ -1,38 +1,49 @@
 ﻿@model IEnumerable<Portfolio.Models.Project>
+
 @{
-    ViewData["Title"] = "My Portfolio";
+    ViewData["Title"] = "Portfolio";
 }
 
 <div class="container mt-4">
-    <div class="card mb-5 bg-light">
-        <div class="card-body">
-            <h4 class="card-title">Table of Contents</h4>
-            <ul>
-                @foreach (var item in Model)
-                {
-                    <li>
-                        <a href="#project-@item.Id">@item.Title</a> - <em>@item.ShortDescription</em>
-                    </li>
-                }
-            </ul>
+    <div class="p-5 mb-5 portfolio-hero shadow-lg">
+        <div class="container-fluid py-3">
+            <h1 class="display-4 fw-bold">John Raven Jandoc Eullo</h1>
+            <p class="fs-4 mb-2">BSIT 22A1 | Lyceum of Alabang</p>
+            <p class="fs-6 text-light opacity-75 col-md-8">
+                Aspiring IT professional passionate about database architecture, embedded systems, and mobile computing security. Explore my recent academic and technical projects below.
+            </p>
         </div>
     </div>
 
-    <h2 class="mb-4">My Projects</h2>
+    <div class="mb-5">
+        <h4 class="fw-bold mb-3 text-secondary">
+            <i class="bi bi-list-ul"></i> Quick Navigation
+        </h4>
+        <div class="d-flex flex-wrap gap-2">
+            @foreach (var item in Model)
+            {
+                <a href="#project-@item.Id" class="text-decoration-none px-4 py-2 rounded-pill toc-pill fw-semibold shadow-sm">
+                    @item.Title
+                </a>
+            }
+        </div>
+    </div>
+
+    <h3 class="fw-bold mb-4 border-bottom pb-2">Featured Projects</h3>
 
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-md-6 mb-4" id="project-@item.Id">
-                <div class="card h-100 shadow-sm">
-                    <img src="@item.ThumbnailUrl" class="card-img-top" alt="Thumbnail for @item.Title" style="height: 200px; object-fit: cover; background-color: #e9ecef;">
+            <div class="col-md-6 col-lg-4 mb-4" id="project-@item.Id">
+                <div class="card h-100 shadow-sm border-0 card-hover">
+                    <img src="@item.ThumbnailUrl" class="card-img-top" alt="Thumbnail for @item.Title" style="height: 220px; object-fit: cover;">
 
-                    <div class="card-body">
-                        <h5 class="card-title">@item.Title</h5>
-                        <p class="card-text">@item.ShortDescription</p>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark">@item.Title</h5>
+                        <p class="card-text text-muted flex-grow-1">@item.ShortDescription</p>
                     </div>
-                    <div class="card-footer bg-white border-top-0">
-                        <a asp-controller="Project" asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary w-100">View Details</a>
+                    <div class="card-footer bg-transparent border-top-0 pb-3 pt-0">
+                        <a asp-controller="Project" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary w-100 rounded-pill fw-semibold">View Details</a>
                     </div>
                 </div>
             </div>
