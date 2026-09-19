@@ -1,33 +1,73 @@
-.portfolio-hero {
-    background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+body {
+    background-color: #0f1015;
+    color: #e0e6ed;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-neon {
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
     color: white;
+    border: none;
+    transition: box-shadow 0.3s ease;
+}
+
+    .btn-neon:hover {
+        color: white;
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+    }
+
+.portfolio-hero-dark {
+    background: radial-gradient(circle at top left, #1a1c23, #0f1015);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 15px;
 }
 
-.card-hover {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.card-dark {
+    background-color: #1a1c23;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-    .card-hover:hover {
+    .card-dark:hover {
         transform: translateY(-8px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
+        border-color: rgba(0, 210, 255, 0.3);
     }
 
-.toc-pill {
+.toc-pill-dark {
     transition: all 0.2s ease;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    color: #495057;
+    background-color: #1a1c23;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #a0aec0;
 }
 
-    .toc-pill:hover {
-        background-color: #4e4376;
-        color: white;
-        border-color: #4e4376;
+    .toc-pill-dark:hover {
+        background-color: #1a1c23;
+        color: #00d2ff;
+        border-color: #00d2ff;
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
     }
 
-.comment-bubble {
-    background-color: #f1f3f5;
+.comment-bubble-dark {
+    background-color: #1a1c23;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 0 15px 15px 15px;
     padding: 15px;
+    color: #e0e6ed;
 }
+
+.input-dark {
+    background-color: #0f1015 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #e0e6ed !important;
+}
+
+    .input-dark:focus {
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 0 0.25rem rgba(0, 210, 255, 0.25) !important;
+    }
